@@ -1,0 +1,13 @@
+from typing import Protocol
+
+from app.domain.models import EmailMessage, InboxMessage
+
+
+class TempMailGateway(Protocol):
+    async def get_current_email(self) -> str: ...
+
+    async def list_messages(self) -> list[InboxMessage]: ...
+
+    async def get_message(self, message_id: str) -> EmailMessage: ...
+
+    async def refresh_email(self) -> str: ...
