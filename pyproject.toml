@@ -11,7 +11,7 @@ dependencies = [
     "fastapi (>=0.137.1,<0.138.0)",
     "uvicorn (>=0.49.0,<0.50.0)",
     "gunicorn (>=26.0.0,<27.0.0)",
-    "camoufox (>=0.4.11,<0.5.0)"
+    "camoufox[geoip] (>=0.4.11,<0.5.0)"
 ]
 
 [dependency-groups]
@@ -33,21 +33,21 @@ line-length = 100
 
 [tool.ruff.lint]
 select = [
-    "E",   # pycodestyle errors
-    "W",   # pycodestyle warnings
-    "F",   # pyflakes
-    "I",   # isort
-    "C",   # flake8-comprehensions
-    "B",   # flake8-bugbear
-    "UP",  # pyupgrade
-    "RUF", # ruff-specific
+    "E",
+    "W",
+    "F",
+    "I",
+    "C",
+    "B",
+    "UP",
+    "RUF",
 ]
 ignore = [
-    "E501",  # line too long, handled by formatter
-    "B008",  # do not perform function calls in argument defaults
-    "C901",  # complexity
-    "RUF012", # mutable class attributes should be annotated with `typing.ClassVar`
-    "RUF001", # ambiguous unicode characters in strings
+    "E501",
+    "B008",
+    "C901",
+    "RUF012",
+    "RUF001",
     "B024",
 ]
 

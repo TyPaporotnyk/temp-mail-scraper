@@ -5,6 +5,7 @@ from pathlib import Path
 @dataclass(slots=True, frozen=True)
 class BrowserManagerSettings:
     browser_headless: bool
+    browser_humanize: bool
     browser_storage_state_path: Path
     action_timeout_ms: int
     navigation_timeout_ms: int

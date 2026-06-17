@@ -5,7 +5,6 @@ from dataclasses import dataclass
 class InboxMessage:
     id: str
     sender: str
-    subject: str
     received_at: str
 
 
@@ -13,6 +12,5 @@ class InboxMessage:
 class EmailMessage:
     id: str
     sender: str
-    subject: str
     received_at: str
     body: str

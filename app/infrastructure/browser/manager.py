@@ -18,12 +18,18 @@ class BrowserManager:
     def __init__(self, settings: BrowserManagerSettings) -> None:
         self._settings = settings
 
+        self._generation = 0
+
         self._camoufox: AsyncCamoufox | None = None
         self._browser: Browser | None = None
         self._context: BrowserContext | None = None
         self._page: Page | None = None
 
         self._lock = asyncio.Lock()
+
+    @property
+    def generation(self) -> int:
+        return self._generation
 
     async def start(self) -> None:
         async with self._lock:
@@ -63,8 +69,9 @@ class BrowserManager:
             self._camoufox = AsyncCamoufox(
                 headless=self._settings.browser_headless,
                 config=self._settings.browser_config,
+                geoip=True,
                 i_know_what_im_doing=True,
-                humanize=True,
+                humanize=self._settings.browser_humanize,
                 os=("windows",),
             )
 
